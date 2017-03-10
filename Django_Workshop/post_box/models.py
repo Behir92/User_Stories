@@ -8,20 +8,21 @@ TYPE= (
     )
 
 
-class Adress(models.Model):
-    city = models.CharField(max_length=128)
-    street = models.CharField(max_length=128)
-    house_number = models.IntegerField()
-    apt_number = models.IntegerField()
+
 
 class Person(models.Model):
     name = models.CharField(max_length=32)
     surname = models.CharField(max_length=64)
     description = models.TextField()
-    adress = models.ForeignKey(Adress)
     
+    
+class Adress(models.Model):
+    person = models.ForeignKey(Person)
+    city = models.CharField(max_length=128)
+    street = models.CharField(max_length=128)
+    house_number = models.IntegerField()
+    apt_number = models.IntegerField()    
 
-    
 class Telephone(models.Model):
     person = models.ForeignKey(Person)
     number = models.CharField(max_length=128)
