@@ -15,13 +15,16 @@ class Person(models.Model):
     surname = models.CharField(max_length=64)
     description = models.TextField()
     
+    def __str__(self):
+        return "{} {} {}".format(self.name, self.surname, self.description)
+    
     
 class Adress(models.Model):
     person = models.ForeignKey(Person)
     city = models.CharField(max_length=128)
     street = models.CharField(max_length=128)
     house_number = models.IntegerField()
-    apt_number = models.IntegerField()    
+    apt_number = models.IntegerField(null=True,blank=True)    
 
 class Telephone(models.Model):
     person = models.ForeignKey(Person)

@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from post_box.views import NewPerson
+from post_box.views import NewPerson,ModPerson
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'new/', NewPerson.as_view()),
-#     url(r'/modify/(?P<id>\d+)',modify),
+    url(r'modify/(?P<id>\d+)',ModPerson.as_view()),
 #     url(r'/delete/(?P<id>\d+)',delete),
 ]
