@@ -18,4 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+#     url(r'/new/', new_person),
+#     url(r'/modify/(?P<id>\d+)',modify),
+#     url(r'/delete/(?P<id>\d+)',delete),
 ]
